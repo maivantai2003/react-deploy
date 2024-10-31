@@ -7,7 +7,7 @@ const NotificationComponent = () => {
     useEffect(() => {
         // Thiết lập kết nối tới SignalR hub
         const connection = new signalR.HubConnectionBuilder()
-            .withUrl("https://localhost:7095/hub").withAutomaticReconnect() // Đường dẫn tới SignalR hub
+            .withUrl("https://1501-2401-d800-7b35-def0-c44c-e655-652b-97f2.ngrok-free.app/hub").withAutomaticReconnect() // Đường dẫn tới SignalR hub
             .build();
         connection.start()
             .then(() => {

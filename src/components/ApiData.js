@@ -10,9 +10,11 @@ const UserListComponent = () => {
   // Hàm để lấy danh sách người dùng từ API
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('https://4d30-118-69-34-165.ngrok-free.app/api/User');
-      setUsers(response.data);
-      console.log(response.data)
+      const response = await axios.get('https://a8dd-2401-d800-7b35-def0-c44c-e655-652b-97f2.ngrok-free.app/api/user');
+      console.log(response)
+      const usersData = Array.isArray(response.data) ? response.data : [];
+    setUsers(usersData);
+    console.log(usersData);
     } catch (error) {
       console.error('Error fetching users:', error);
     }
@@ -21,7 +23,7 @@ const UserListComponent = () => {
   // Hàm để thêm người dùng mới
   const addUser = async () => {
     try {
-      await axios.post('https://4d30-118-69-34-165.ngrok-free.app/api/User?user='+newUser);
+      await axios.post('https://a8dd-2401-d800-7b35-def0-c44c-e655-652b-97f2.ngrok-free.app/api/user?user='+newUser);
       setNewUser(''); // Reset lại giá trị input sau khi thêm
     } catch (error) {
       console.error('Error adding user:', error);
@@ -32,7 +34,7 @@ const UserListComponent = () => {
   useEffect(() => {
     const connectToSignalR = async () => {
       const connection = new signalR.HubConnectionBuilder()
-        .withUrl('https://localhost:7095/hub')
+        .withUrl('https://a8dd-2401-d800-7b35-def0-c44c-e655-652b-97f2.ngrok-free.app/hub')
         .build();
 
       try {
@@ -41,7 +43,7 @@ const UserListComponent = () => {
         setConnection(connection);
         connection.on('LoadListUser', fetchUsers);
         connection.on("LoadContent",function(){
-            console.log('Hellllllo')
+            console.log('Send Async')
         })
       } catch (error) {
         console.error('Error connecting to SignalR:', error);

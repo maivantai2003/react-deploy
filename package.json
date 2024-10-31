@@ -2,6 +2,7 @@
   "name": "testsignalr",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://6542-2401-d800-7b35-def0-c44c-e655-652b-97f2.ngrok-free.app",
   "dependencies": {
     "@microsoft/signalr": "^8.0.7",
     "@testing-library/jest-dom": "^5.17.0",
