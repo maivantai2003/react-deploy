@@ -10,7 +10,7 @@ const UserListComponent = () => {
   // Hàm để lấy danh sách người dùng từ API
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('https://localhost:7095/api/User');
+      const response = await axios.get('https://4d30-118-69-34-165.ngrok-free.app/api/User');
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -20,7 +20,7 @@ const UserListComponent = () => {
   // Hàm để thêm người dùng mới
   const addUser = async () => {
     try {
-      await axios.post('https://localhost:7095/api/User?user='+newUser);
+      await axios.post('https://4d30-118-69-34-165.ngrok-free.app/api/User?user='+newUser);
       setNewUser(''); // Reset lại giá trị input sau khi thêm
     } catch (error) {
       console.error('Error adding user:', error);
