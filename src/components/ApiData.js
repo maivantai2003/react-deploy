@@ -12,6 +12,7 @@ const UserListComponent = () => {
     try {
       const response = await axios.get('https://4d30-118-69-34-165.ngrok-free.app/api/User');
       setUsers(response.data);
+      console.log(response.data)
     } catch (error) {
       console.error('Error fetching users:', error);
     }
