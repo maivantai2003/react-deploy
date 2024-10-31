@@ -42,8 +42,8 @@ const UserListComponent = () => {
         console.log('SignalR connected');
         setConnection(connection);
         connection.on('LoadListUser', fetchUsers);
-        connection.on("LoadContent",function(){
-            console.log('Send Async')
+        connection.on("LoadContent",function(user){
+            console.log('Send Async: '+user)
         })
       } catch (error) {
         console.error('Error connecting to SignalR:', error);
